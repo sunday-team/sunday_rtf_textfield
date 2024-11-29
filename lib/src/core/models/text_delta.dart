@@ -1,4 +1,4 @@
-import 'package:rtf_textfield/src/core/models/text_metadata.dart';
+import 'package:sunday_rtf_textfield/src/core/models/text_metadata.dart';
 
 /// `RTFTextDelta` is a class that holds the character and its metadata.
 class RTFTextDelta {

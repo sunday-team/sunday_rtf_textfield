@@ -1,7 +1,7 @@
-import 'package:rtf_textfield/src/core/models/text_delta.dart';
-import 'package:rtf_textfield/src/core/models/text_metadata.dart';
-import 'package:rtf_textfield/src/core/utils/extensions/string.dart';
-import 'package:rtf_textfield/src/core/utils/extensions/text_deltas.dart';
+import 'package:sunday_rtf_textfield/src/core/models/text_delta.dart';
+import 'package:sunday_rtf_textfield/src/core/models/text_metadata.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/extensions/string.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/extensions/text_deltas.dart';
 
 /// `TextDeltasUtils` is a utility class that provides helper methods for `TextDeltas`
 abstract class RTFTextDeltasUtils {

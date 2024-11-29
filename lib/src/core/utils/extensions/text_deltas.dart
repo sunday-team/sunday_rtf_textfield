@@ -1,4 +1,4 @@
-import 'package:rtf_textfield/src/core/models/text_delta.dart';
+import 'package:sunday_rtf_textfield/src/core/models/text_delta.dart';
 
 /// Sugar for working with list of [TextDelta]s.
 typedef TextDeltas = List<RTFTextDelta>;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart' as material;
-import 'package:rtf_textfield/src/view/input_decoration/rtf_input_decorator.dart';
+import 'package:sunday_rtf_textfield/src/view/input_decoration/sunday_rtf_input_decorator.dart';
 
 /// This is the base class for all RTF converters
 abstract class RTFConverter {

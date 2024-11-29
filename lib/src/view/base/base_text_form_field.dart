@@ -4,7 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart'
     hide InputCounterWidgetBuilder, InputDecorationTheme;
 import 'package:flutter/services.dart';
-import 'package:rtf_textfield/rtf_textfield.dart';
+import 'package:sunday_rtf_textfield/sunday_rtf_textfield.dart';
 
 export 'package:flutter/services.dart' show SmartDashesType, SmartQuotesType;
 

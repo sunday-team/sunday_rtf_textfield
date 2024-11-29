@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rtf_textfield/rtf_textfield.dart';
+import 'package:sunday_rtf_textfield/sunday_rtf_textfield.dart';
 
 void main() {
   runApp(const MyApp());

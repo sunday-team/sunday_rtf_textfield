@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart' hide InputCounterWidgetBuilder;
 import 'package:flutter/services.dart';
-import 'package:rtf_textfield/rtf_textfield.dart';
+import 'package:sunday_rtf_textfield/sunday_rtf_textfield.dart';
 
 /// A [TextFormField] that uses a [RTFTextFieldController] to control the text.
 /// The only relevance of this widget over [TextFormField] is that it listens to changes in the controller and rebuilds on text align change.

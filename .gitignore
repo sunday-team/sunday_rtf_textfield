@@ -23,13 +23,7 @@ migrate_working_dir/
 
 # Flutter/Dart/Pub related
 # Libraries should not include pubspec.lock, per https://dart.dev/guides/libraries/private-files#pubspeclock.
-/pubspec.lock
+pubspec.lock
 **/doc/api/
 .dart_tool/
 build/
-
-# Explicitly track these files, even if others are ignored
-!lib/rich_textfield.dart
-!lib/src/decoration/rich_input_decorator.dart
-!lib/src/textfield/rich_text_form_field.dart
-!lib/src/textfield/rich_textfield.dart

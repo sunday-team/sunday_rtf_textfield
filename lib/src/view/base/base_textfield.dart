@@ -6,8 +6,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart' hide InputDecorationTheme;
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:rtf_textfield/rtf_textfield.dart';
-import 'package:rtf_textfield/src/core/utils/converter.dart';
+import 'package:sunday_rtf_textfield/sunday_rtf_textfield.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/converter.dart';
 
 export 'package:flutter/services.dart'
     show

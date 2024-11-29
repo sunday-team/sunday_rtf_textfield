@@ -1,15 +1,14 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:rtf_textfield/src/core/models/text_delta.dart';
-import 'package:rtf_textfield/src/core/models/text_metadata.dart';
-import 'package:rtf_textfield/src/core/utils/enums/text_decoration.dart';
-import 'package:rtf_textfield/src/core/utils/enums/text_metadata.dart';
-import 'package:rtf_textfield/src/core/utils/extensions/list.dart';
-import 'package:rtf_textfield/src/core/utils/extensions/string.dart';
-import 'package:rtf_textfield/src/core/utils/extensions/text_deltas.dart';
-import 'package:rtf_textfield/src/core/utils/text_deltas.dart';
+import 'package:sunday_rtf_textfield/src/core/models/text_delta.dart';
+import 'package:sunday_rtf_textfield/src/core/models/text_metadata.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/enums/text_decoration.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/enums/text_metadata.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/extensions/list.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/extensions/string.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/extensions/text_deltas.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/text_deltas.dart';
 
 part 'base_rtf_controller.dart';
 

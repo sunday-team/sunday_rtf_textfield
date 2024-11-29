@@ -1,4 +1,4 @@
-part of 'rtf_text_field_controller.dart';
+part of 'sunday_rtf_text_field_controller.dart';
 
 class _RichTextEditorController extends TextEditingController {
   ///This holds all the text changes per character and it's corresponding style/metadata

@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:rtf_textfield/rtf_textfield.dart';
+import 'package:sunday_rtf_textfield/sunday_rtf_textfield.dart';
 
 /// A `RTFTextField` that uses a `RTFTextFieldController` to control the text.
 /// The only relevance of this widget over `RTFTextField` is that it listens to changes in the controller and rebuilds on text align change.

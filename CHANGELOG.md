@@ -8,3 +8,9 @@ Changes:
    - Updated README file
    - Refactoring
    - Bug fix
+
+## 1.0.2
+Features:
+   - Changed package name to sunday_rtf_textfield
+   - Updated README file and other files
+   - Other improvements

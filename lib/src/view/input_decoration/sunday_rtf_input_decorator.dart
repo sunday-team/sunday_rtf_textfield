@@ -8,7 +8,7 @@ import 'dart:ui' show lerpDouble;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:rtf_textfield/src/core/utils/converter.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/converter.dart';
 
 // Examples can assume:
 // late Widget _myIcon;

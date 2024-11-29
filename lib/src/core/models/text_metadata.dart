@@ -1,10 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:rtf_textfield/src/core/utils/converter.dart';
-import 'package:rtf_textfield/src/core/utils/enums/text_decoration.dart';
-import 'package:rtf_textfield/src/core/utils/enums/text_metadata.dart';
-import 'package:rtf_textfield/src/core/utils/extensions/color.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/converter.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/enums/text_decoration.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/enums/text_metadata.dart';
+import 'package:sunday_rtf_textfield/src/core/utils/extensions/color.dart';
 
 /// `RTFTextMetadata` is a class that holds the style change for each character.
 class RTFTextMetadata {
