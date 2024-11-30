@@ -11,6 +11,10 @@ class RTFTextField extends RichTextField {
   // ignore: overridden_fields
   final RTFTextFieldController controller;
 
+  /// Called when the user changes the selection of text (including the cursor location).
+  @override
+  ValueChanged<TextSelection>? get onSelectionChanged => super.onSelectionChanged;
+
   const RTFTextField({
     super.key,
     required this.controller,
@@ -80,10 +84,22 @@ class _RTFTextFieldState extends State<RTFTextField> {
 
   @override
   Widget build(BuildContext context) {
-    ///value listenable builder added to listen to changes in the controller and rebuild on text align change
+    // Get the current brightness
+    final brightness = MediaQuery.platformBrightnessOf(context);
+    final defaultTextColor = brightness == Brightness.dark 
+        ? Colors.white 
+        : Colors.black;
+
     return ValueListenableBuilder<TextEditingValue>(
       valueListenable: controller,
-      builder: (_, controllerValue, __) {
+      builder: (context, controllerValue, __) {
+        // Initialize or update controller with brightness-aware color
+        if (controller.metadata == null || 
+            (controller.metadata?.color == Colors.black || controller.metadata?.color == Colors.white)) {
+          controller.metadata = (controller.metadata ?? RTFTextFieldController.defaultMetadata)
+              .copyWith(color: defaultTextColor);
+        }
+        
         return RichTextField(
           keyboardType: widget.keyboardType,
           key: widget.key,
@@ -92,7 +108,11 @@ class _RTFTextFieldState extends State<RTFTextField> {
           decoration: widget.decoration,
           textInputAction: widget.textInputAction,
           textCapitalization: widget.textCapitalization,
-          style: widget.style,
+          style: widget.style?.copyWith(
+            color: defaultTextColor,
+          ) ?? TextStyle(
+            color: defaultTextColor,
+          ),
           strutStyle: widget.strutStyle,
           textAlign: controller.metadata?.alignment ?? widget.textAlign,
           textAlignVertical: widget.textAlignVertical,
@@ -140,6 +160,13 @@ class _RTFTextFieldState extends State<RTFTextField> {
           contextMenuBuilder: widget.contextMenuBuilder,
           spellCheckConfiguration: widget.spellCheckConfiguration,
           magnifierConfiguration: widget.magnifierConfiguration,
+          onSelectionChanged: (selection) {
+            // Update internal selection
+            controller.selection = selection;
+            
+            // Call user's callback if provided
+            widget.onSelectionChanged?.call(selection);
+          },
         );
       },
     );

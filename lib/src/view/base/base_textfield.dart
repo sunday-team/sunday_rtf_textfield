@@ -239,6 +239,7 @@ class RichTextField extends StatefulWidget {
   ///    characters" and how it may differ from the intuitive meaning.
   const RichTextField({
     super.key,
+    this.onSelectionChanged,
     this.controller,
     this.focusNode,
     this.undoController,
@@ -357,6 +358,9 @@ class RichTextField extends StatefulWidget {
   ///
   /// If null, this widget will create its own [TextEditingController].
   final TextEditingController? controller;
+
+  /// Callback function that is called when the selection changes.
+  final ValueChanged<TextSelection>? onSelectionChanged;
 
   /// Defines the keyboard focus for this widget.
   ///
@@ -671,14 +675,14 @@ class RichTextField extends StatefulWidget {
   /// widget.
   ///
   /// If [mouseCursor] is a [MaterialStateProperty<MouseCursor>],
-  /// [MaterialStateProperty.resolve] is used for the following [MaterialState]s:
+  /// [WidgetStateProperty.resolve] is used for the following [WidgetState]s:
   ///
-  ///  * [MaterialState.error].
-  ///  * [MaterialState.hovered].
-  ///  * [MaterialState.focused].
-  ///  * [MaterialState.disabled].
+  ///  * [WidgetState.error].
+  ///  * [WidgetState.hovered].
+  ///  * [WidgetState.focused].
+  ///  * [WidgetState.disabled].
   ///
-  /// If this property is null, [MaterialStateMouseCursor.textable] will be used.
+  /// If this property is null, [WidgetStateMouseCursor.textable] will be used.
   ///
   /// The [mouseCursor] is the only property of [RichTextField] that controls the
   /// appearance of the mouse pointer. All other properties related to "cursor"
@@ -1320,24 +1324,24 @@ class _TextFieldState extends State<RichTextField>
   }
   // AutofillClient implementation end.
 
-  Set<MaterialState> get _materialState {
-    return <MaterialState>{
-      if (!_isEnabled) MaterialState.disabled,
-      if (_isHovering) MaterialState.hovered,
-      if (_effectiveFocusNode.hasFocus) MaterialState.focused,
-      if (_hasError) MaterialState.error,
+  Set<WidgetState> get _widgetState {
+    return <WidgetState>{
+      if (!_isEnabled) WidgetState.disabled,
+      if (_isHovering) WidgetState.hovered,
+      if (_effectiveFocusNode.hasFocus) WidgetState.focused,
+      if (_hasError) WidgetState.error,
     };
   }
 
   TextStyle _getInputStyleForState(TextStyle style) {
     final ThemeData theme = Theme.of(context);
-    final TextStyle stateStyle = MaterialStateProperty.resolveAs(
+    final TextStyle stateStyle = WidgetStateProperty.resolveAs(
         theme.useMaterial3
             ? _m3StateInputStyle(context)!
             : _m2StateInputStyle(context)!,
-        _materialState);
+        _widgetState);
     final TextStyle providedStyle =
-        MaterialStateProperty.resolveAs(style, _materialState);
+        WidgetStateProperty.resolveAs(style, _widgetState);
     return providedStyle.merge(stateStyle);
   }
 
@@ -1358,7 +1362,7 @@ class _TextFieldState extends State<RichTextField>
     final DefaultSelectionStyle selectionStyle =
         DefaultSelectionStyle.of(context);
     final TextStyle? providedStyle =
-        MaterialStateProperty.resolveAs(widget.style, _materialState);
+        WidgetStateProperty.resolveAs(widget.style, _widgetState);
     final TextStyle style = _getInputStyleForState(theme.useMaterial3
             ? _m3InputStyle(context)
             : theme.textTheme.titleMedium!)
@@ -1609,9 +1613,9 @@ class _TextFieldState extends State<RichTextField>
       );
     }
     final MouseCursor effectiveMouseCursor =
-        MaterialStateProperty.resolveAs<MouseCursor>(
-      widget.mouseCursor ?? MaterialStateMouseCursor.textable,
-      _materialState,
+        WidgetStateProperty.resolveAs<MouseCursor>(
+      widget.mouseCursor ?? WidgetStateMouseCursor.textable,
+      _widgetState,
     );
 
     final int? semanticsMaxValueLength;
@@ -1663,9 +1667,9 @@ class _TextFieldState extends State<RichTextField>
 }
 
 TextStyle? _m2StateInputStyle(BuildContext context) =>
-    MaterialStateTextStyle.resolveWith((Set<MaterialState> states) {
+    WidgetStateTextStyle.resolveWith((Set<WidgetState> states) {
       final ThemeData theme = Theme.of(context);
-      if (states.contains(MaterialState.disabled)) {
+      if (states.contains(WidgetState.disabled)) {
         return TextStyle(color: theme.disabledColor);
       }
       return TextStyle(color: theme.textTheme.titleMedium?.color);
@@ -1684,8 +1688,8 @@ TextStyle _m2CounterErrorStyle(BuildContext context) => Theme.of(context)
 //   dev/tools/gen_defaults/bin/gen_defaults.dart.
 
 TextStyle? _m3StateInputStyle(BuildContext context) =>
-    MaterialStateTextStyle.resolveWith((Set<MaterialState> states) {
-      if (states.contains(MaterialState.disabled)) {
+    WidgetStateTextStyle.resolveWith((Set<WidgetState> states) {
+      if (states.contains(WidgetState.disabled)) {
         return TextStyle(
             color: Theme.of(context)
                 .textTheme

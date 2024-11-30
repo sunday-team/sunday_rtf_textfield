@@ -14,3 +14,9 @@ Features:
    - Changed package name to sunday_rtf_textfield
    - Updated README file and other files
    - Other improvements
+
+## 1.0.3
+Features:
+   - Added onSelectionChanged callback
+   - Removed all deprecated methods
+   - Other improvement

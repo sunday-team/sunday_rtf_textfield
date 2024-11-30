@@ -1,7 +1,7 @@
 name: sunday_rtf_textfield
 description: Flutter custom widget to create Rich TextField. It includes textspan for hint, label. Control the text style with RichTextController.
-version: 1.0.2
-homepage: https://github.com/K1yoshiSho/rtf_textfield.git
+version: 1.0.3
+homepage: https://github.com/sunday-team/sunday_rtf_textfield.git
 
 environment:
   sdk: '>=3.2.5 <4.0.0'

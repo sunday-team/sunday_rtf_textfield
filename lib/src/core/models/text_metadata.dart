@@ -15,7 +15,7 @@ class RTFTextMetadata {
   final TextAlign alignment;
 
   const RTFTextMetadata({
-    this.color = Colors.black,
+    this.color = Colors.black, // We'll override this with MediaQuery
     this.fontWeight = FontWeight.w400,
     this.fontStyle = FontStyle.normal,
     this.fontSize = 14,
